@@ -1,4 +1,4 @@
-﻿#if NET5_0
+﻿#if NET5_0 || NET7_0
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.Services;
 #elif NET472

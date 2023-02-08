@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-#if NET5_0
+#if NET5_0 || NET7_0
 using Umbraco.Cms.Core.Composing;
 using Umbraco.Cms.Core.DependencyInjection;
 #elif NET472
@@ -10,7 +10,7 @@ using Umbraco.Core.Composing;
 
 namespace Perplex.ContentBlocks.Rendering
 {
-#if NET5_0
+#if NET5_0 || NET7_0
     public class ContentBlocksRenderingComposer : IComposer
     {
         public void Compose(IUmbracoBuilder builder)

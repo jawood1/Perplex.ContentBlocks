@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-#if NET5_0
+#if NET5_0 || NET7_0
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Threading.Tasks;
@@ -16,7 +16,7 @@ namespace Perplex.ContentBlocks.Rendering
 {
     public static partial class HtmlHelperExtensions
     {
-#if NET5_0
+#if NET5_0 || NET7_0
 
         /// <summary>
         /// Renders all Content Blocks.

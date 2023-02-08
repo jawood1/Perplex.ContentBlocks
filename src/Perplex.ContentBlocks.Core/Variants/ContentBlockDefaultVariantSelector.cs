@@ -3,7 +3,7 @@ using System.Linq;
 
 #if NET472
 using Umbraco.Core.Models.PublishedContent;
-#elif NET5_0
+#elif NET5_0 || NET7_0
 using Umbraco.Cms.Core.Models.PublishedContent;
 #endif
 
@@ -14,7 +14,7 @@ namespace Perplex.ContentBlocks.Variants
     /// </summary>
     public class ContentBlockDefaultVariantSelector : IContentBlockVariantSelector
     {
-        public ContentBlockVariantModelValue SelectVariant(ContentBlockModelValue block, IPublishedElement content, bool preview)
-            => null;
+        public ContentBlockVariantModelValue SelectVariant(ContentBlockModelValue block, IPublishedElement content,
+            bool preview) => null;
     }
 }

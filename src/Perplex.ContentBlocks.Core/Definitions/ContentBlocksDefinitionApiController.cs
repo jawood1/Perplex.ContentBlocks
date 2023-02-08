@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 
 
-#if NET5_0
+#if NET5_0 || NET7_0
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System.Net.Mime;
@@ -25,7 +25,7 @@ namespace Perplex.ContentBlocks.Definitions
             _categoryRepository = categoryRepository;
         }
 
-#if NET5_0
+#if NET5_0 || NET7_0
         [HttpGet]
         public IActionResult GetAllDefinitions()
         {

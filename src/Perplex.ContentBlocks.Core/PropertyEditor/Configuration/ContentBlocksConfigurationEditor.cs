@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using static Perplex.ContentBlocks.Constants.PropertyEditor.Configuration;
 
-#if NET5_0
+#if NET5_0 || NET7_0
 using Umbraco.Cms.Core.IO;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Serialization;
@@ -14,8 +14,8 @@ namespace Perplex.ContentBlocks.PropertyEditor.Configuration
 {
     public class ContentBlocksConfigurationEditor : ConfigurationEditor<ContentBlocksConfiguration>
     {
-#if NET5_0
-public ContentBlocksConfigurationEditor(IIOHelper ioHelper) : base(ioHelper)
+#if NET5_0 || NET7_0
+        public ContentBlocksConfigurationEditor(IIOHelper ioHelper) : base(ioHelper)
 #elif NET472
         public ContentBlocksConfigurationEditor()
 #endif  
@@ -137,8 +137,8 @@ public ContentBlocksConfigurationEditor(IIOHelper ioHelper) : base(ioHelper)
             };
         }
 
-#if NET5_0
-        public override object FromDatabase(string configuration, IConfigurationEditorJsonSerializer configurationEditorJsonSerializer)
+#if NET5_0 || NET7_0
+public override object FromDatabase(string configuration, IConfigurationEditorJsonSerializer configurationEditorJsonSerializer)
 #elif NET472
         public override object FromDatabase(string configuration)
 #endif  
@@ -152,8 +152,8 @@ public ContentBlocksConfigurationEditor(IIOHelper ioHelper) : base(ioHelper)
 
             try
             {
-#if NET5_0
-                if (base.FromDatabase(configuration, configurationEditorJsonSerializer) is ContentBlocksConfiguration contentBlocksConfiguration)
+#if NET5_0 || NET7_0
+        if (base.FromDatabase(configuration, configurationEditorJsonSerializer) is ContentBlocksConfiguration contentBlocksConfiguration)
 #elif NET472
                 if (base.FromDatabase(configuration) is ContentBlocksConfiguration contentBlocksConfiguration)
 #endif          

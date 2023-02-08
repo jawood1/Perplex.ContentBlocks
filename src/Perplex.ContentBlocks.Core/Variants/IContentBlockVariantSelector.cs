@@ -2,8 +2,9 @@
 
 #if NET472
 using Umbraco.Core.Models.PublishedContent;
-#elif NET5_0
+#elif NET5_0 || NET7_0
 using Umbraco.Cms.Core.Models.PublishedContent;
+
 #endif
 
 namespace Perplex.ContentBlocks.Variants

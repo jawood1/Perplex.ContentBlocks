@@ -3,7 +3,7 @@ using Perplex.ContentBlocks.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-#if NET5_0
+#if NET5_0 || NET7_0
 using Umbraco.Cms.Core.Models;
 using Umbraco.Cms.Core.PropertyEditors;
 using Umbraco.Cms.Core.Services;
@@ -27,14 +27,14 @@ namespace Perplex.ContentBlocks.PropertyEditor
         private readonly ContentBlockUtils _utils;
         private readonly ContentBlocksModelValueDeserializer _deserializer;
 
-#if NET5_0
+#if NET5_0 || NET7_0
         private readonly IShortStringHelper _shortStringHelper;
 #endif
 
         public ContentBlocksValidator(
             ContentBlocksModelValueDeserializer deserializer,
             ContentBlockUtils utils,
-#if NET5_0
+#if NET5_0 || NET7_0
             IPropertyValidationService validationService,
             IShortStringHelper shortStringHelper) : base(validationService)
 #elif NET472
@@ -45,7 +45,7 @@ namespace Perplex.ContentBlocks.PropertyEditor
         {
             _deserializer = deserializer;
             _utils = utils;
-#if NET5_0
+#if NET5_0 || NET7_0
             _shortStringHelper = shortStringHelper;
 #endif
         }
@@ -82,7 +82,7 @@ namespace Perplex.ContentBlocks.PropertyEditor
 
                 var validationModel = new ElementTypeValidationModel("", blockValue.Id);
 
-#if NET5_0
+#if NET5_0 || NET7_0
                 var propType = new PropertyType(_shortStringHelper, dataType) { Alias = "content" };
 #elif NET472
                 var propType = new PropertyType(dataType) { Alias = "content" };
@@ -93,7 +93,7 @@ namespace Perplex.ContentBlocks.PropertyEditor
                 {
                     foreach (var variant in blockValue.Variants)
                     {
-#if NET5_0
+#if NET5_0 || NET7_0
                         var variantPropType = new PropertyType(_shortStringHelper, dataType) { Alias = "content_variant_" + variant.Id.ToString("N") };
 #elif NET472
                         var variantPropType = new PropertyType(dataType) { Alias = "content_variant_" + variant.Id.ToString("N") };

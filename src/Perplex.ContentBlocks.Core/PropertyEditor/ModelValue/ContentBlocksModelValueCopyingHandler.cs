@@ -1,4 +1,4 @@
-﻿#if NET5_0
+﻿#if NET5_0 || NET7_0
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
